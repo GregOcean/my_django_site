@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+{% block content %}
+		
+					<main class="col-md-8">
+						<ul>	
+							{% if blogs %}
+							{% for blog in blogs %}
+							<article class="post post-1">
+							<header class="entry-header">
+								<h1 class="entry-title">
+									<a href="/article/{{blog.id}}">{{ blog.title }}</a>
+								</h1>
+								<div class="entry-meta">
+									<span class="post-category"><a href="#">{{blog.classification}}</a></span>
+			
+									<span class="post-date"><a href="#"><time class="entry-date" datetime="2012-11-09T23:15:57+00:00">{{blog.create_time}}</time></a></span>
+									<span class="post-date"><a href="#"><time class="entry-date" datetime="2012-11-09T23:15:57+00:00">{{blog.update_time}}</time></a></span>
+			
+									<span class="comments-link"><a href="#">4 Comments</a></span>
+								</div>
+							</header>
+							<div class="entry-content clearfix">
+								<p>{{blog.summary | safe }}</p>
+								<div class="read-more cl-effect-14">
+									<a href="/article/{{blog.id}}" class="more-link">Continue reading <span class="meta-nav">→</span></a>
+								</div>
+							</div>
+						</article>
+						{% endfor %}
+						{% else %}
+						<strong>There are no article present.</strong>
+						{% endif %}
+						</ul>
+					</main>	
+{% endblock %}
+
+{% block paginator %}
+<div class="pagination-wrapper">
+	<div class="pagination">
+    
+	{% if blogs.has_previous %}
+            <li><a href="?page={{ blogs.previous_page_number }}">previous</a></li>
+        {% endif %}
+
+        <span class="current">
+            <li><a class ="thisclass">Page {{ blogs.number }} of {{ blogs.paginator.num_pages }}</a></li>
+        </span>
+
+        {% if blogs.has_next %}
+            <li><a href="?page={{ blogs.next_page_number }}">next</a></li>
+        {% endif %}
+	</div>
+</div>
+{% endblock%}
+
+{% block recent_posts %}
+{% if blogs %}
+{% for blog in blogs %}
+							
+<li><a href="/article/{{blog.id}}">{{ blog.title }}</a></li>
+{% endfor %}
+{% else %}
+<strong>There are no article present.</strong>
+{% endif %}
+
+{% endblock %}
+{% block archives %}
+{% if tags %}
+{% for tag in tags %}
+<li>{{tag.tag_name}}</li>
+{% endfor%}
+{% else %}
+						<strong>There are no tags present.</strong>
+{% endif %}
+{% endblock %}
+
+{% block category %}
+{% if categories %}
+{% for cat in categories %}
+<li>{{cat.name}}</li>
+{% endfor%}
+{% else %}
+						<strong>There are no categories present.</strong>
+{% endif %}
+{% endblock %}

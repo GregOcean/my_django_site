@@ -1,0 +1,40 @@
+{% extends "base_simple.html" %}
+{% load static %}
+{% block content %}	
+		
+					<main class="col-md-12">
+						<h1 class="page-title">个人简介</h1>
+						<article class="post">
+							<div class="entry-content clearfix">
+								<figure class="img-responsive-center">
+									<img class="img-responsive" src="{% static 'img/me.jpg'%}" alt="Developer Image">
+								</figure>
+								<div class="text" style=" text-align:center;"><strong>91年</strong></div>
+								<div class="text" style=" text-align:center;"><strong>福建人</strong></div>
+								<div class="text" style=" text-align:center;"><strong>本硕：</strong>北京理工大学</div>
+								<div class="text" style=" text-align:center;"><strong>专业：</strong>计算机科学与技术</div>
+								<div class="text" style=" text-align:center;"><strong>方向：</strong>图结构数据聚类挖掘</div>
+								<div class="text" style=" text-align:center;"><strong>语言：</strong>C/C++、python</div>
+								<div class="text" style=" text-align:center;"><strong>技能：</strong>mfc、django</div>
+								<div class="text" style=" text-align:center;"><ul><strong>实习：</strong>展视互动科技有限公司技术支持（2014.6-2014.9）</ul><ul>成都飞机制造厂611研究所研发（2015.4-2015.6、2015.12-2016.1）</ul></div>
+								
+								<div class="height-40px"></div>
+								<h2 class="title text-center">SNS</h2>
+								<ul class="social">
+									<li><a href="https://www.zhihu.com/people/wang-da-yang-32-32">知乎</a></li>
+									<li><a href="http://weibo.com/p/1005055497621969/home">微博</a></li>
+									<li><a href="https://twitter.com/GregOcean1">Twitter</a></li>
+									<li><a href="https://www.facebook.com/greg.wang.180">Facebook</a></li>
+									<li><a href="https://github.com/GregOcean">Github</a></li>
+								</ul>
+								<div class="height-40px"></div>
+								<h2 class="title text-center">联系方式</h2>
+								<ul class="social">
+									<li><a href="/contact/">邮箱：greg.ocean9173@gmail.com</a></li>
+								</ul>
+								
+							</div>
+						</article>
+					</main>
+
+{% endblock %}
